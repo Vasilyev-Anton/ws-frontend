@@ -5,7 +5,7 @@ import ChatUI from './ChatUI';
 import ChatAPI from './ChatAPI';
 import ChatWebSocket from './ChatWebSocket';
 
-const chatAPI = new ChatAPI('http://localhost:3045');
+const chatAPI = new ChatAPI('http://localhost:10000');
 
 const domElements = new CreateDOMElements();
 domElements.appendToDOM();
@@ -27,8 +27,8 @@ const showRegistrationWindow = () => {
     try {
       const response = await chatAPI.registerUser(nickname);
 
-      if (response.status === 'Никнейм уже используется.') {
-        alert('Такой никнейм уже занят, попробуйте другой.');
+      if (response.status === 'Псевдоним уже используется.') {
+        alert('Такой псевдоним уже занят, попробуйте другой.');
       } else if (response.status === 'OK') {
         domElements.removeRegistrationForm();
         chatUI = new ChatUI(nickname);
@@ -36,7 +36,7 @@ const showRegistrationWindow = () => {
         chatUI.init();
 
         const chatSocket = new ChatWebSocket(
-          'ws://localhost:3045/ws',
+          'ws://localhost:10000/ws',
           (data) => {
             if (data.type === 'message') {
               console.log(data);
