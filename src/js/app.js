@@ -5,7 +5,7 @@ import ChatUI from './ChatUI';
 import ChatAPI from './ChatAPI';
 import ChatWebSocket from './ChatWebSocket';
 
-const chatAPI = new ChatAPI('http://localhost:10000');
+const chatAPI = new ChatAPI('https://my-first-project-idcp.onrender.com');
 
 const domElements = new CreateDOMElements();
 domElements.appendToDOM();
