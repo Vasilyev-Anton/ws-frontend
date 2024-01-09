@@ -36,7 +36,7 @@ const showRegistrationWindow = () => {
         chatUI.init();
 
         const chatSocket = new ChatWebSocket(
-          'ws://my-first-project-idcp.onrender.com/ws',
+          'wss://my-first-project-idcp.onrender.com/ws',
           (data) => {
             if (data.type === 'message') {
               console.log(data);
